@@ -120,8 +120,6 @@ img {
   padding-bottom: 2rem;
 }
 
-/*===== LAYOUT =====*/
-
 .bd-grid {
   max-width: 70%;
   display: grid;
@@ -438,12 +436,19 @@ div.skills_close .skills_info {
   margin-bottom: 0;
 }
 
+.experience1 {
+  text-align: center;
+}
+
+.experience1 a{
+  color: black;
+}
+
 /* ===== WORK =====*/
 
 .work__container {
   row-gap: 2rem;
   /* place-items: center; */
-
 }
 
 .work__image {
