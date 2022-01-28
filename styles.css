@@ -1,7 +1,4 @@
-/*===== GOOGLE FONTS =====*/
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-/*===== VARIABLES CSS =====*/
 
 :root {
   --header-height: 3rem;
@@ -10,13 +7,9 @@
 
 :root {
   --hue-color: 224;
-  /* ①0是红色 120是绿色 240是蓝色  ②饱和度 ③亮度*/
-  /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
-  /* HSL color mode */
   --first-color: hsl(var(--hue-color), 89%, 60%);
   --first-color-alt: hsl(var(--hue-color), 100%, 50%);
   --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-  /* --first-color: #4070F4; */
   --second-color: #0E2431;
   --body-color: hsl(var(--hue-color), 60%, 99%);
 }
@@ -45,16 +38,12 @@
   --mb-6: 3rem;
 }
 
-/*===== z index =====*/
-
 :root {
   --z-back: -10;
   --z-normal: 1;
   --z-tooltip: 10;
   --z-fixed: 100;
 }
-
-/*===== BASE =====*/
 
 *, ::before, ::after {
   box-sizing: border-box;
@@ -443,12 +432,8 @@ div.skills_close .skills_info {
 .experience1 a{
   color: black;
 }
-
-/* ===== WORK =====*/
-
 .work__container {
   row-gap: 2rem;
-  /* place-items: center; */
 }
 
 .work__image {
@@ -470,8 +455,6 @@ div.skills_close .skills_info {
 }
 
 
-
-/* ===== FOOTER =====*/
 
 .footer {
   background-color: var(--second-color);

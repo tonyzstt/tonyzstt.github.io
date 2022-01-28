@@ -93,12 +93,9 @@ wechat.forEach(el => {
 cancel.addEventListener('click', () => {
     mask.classList.add('isShow')
 })
-
-// 轮播图
 const btn_l = document.querySelector('.button-left');
 const btn_r = document.querySelector('.button-right');
 const ul = document.querySelector('.carousel_list');
-// 设置图片序号 默认为0
 let id = 0;
 let isLock = false;
 
@@ -106,16 +103,13 @@ const rightClick = () => {
     if (isLock) return;
     isLock = true;
     id++;
-    // 加上动画
     ul.style.transition = '0.5s';
     ul.style.transform = `translateX(${-id * 25}%)`;
-    // 如果为第4张图片
     if (id === 3) {
-        // 等待动画结束
         id = 0;
-        setTimeout(() => { // 移动回第一张照片
+        setTimeout(() => { 
             ul.style.transform = `translateX(${-id * 25}%)`;
-            ul.style.transition = 'none'; // 悄悄的移动不要动画
+            ul.style.transition = 'none'; 
         }, 500);
     }
     setCircles(id);
@@ -150,14 +144,12 @@ function setCircles(index) {
     ol.children[index].classList.add('active');
 }
 ol.addEventListener('click', e => {
-    // 如果点击的是li
     if (e.target.tagName === 'LI') {
         id = Number(e.target.getAttribute('data-n'));
         ul.style.transform = `translate(${-id * 25}%)`;
         setCircles(id);
     }
 });
-// 定时器 自动轮播 模拟鼠标右点击
 let timer = setInterval(rightClick, 2000);
 ul.addEventListener('mouseover', () => {
     clearInterval(timer);
