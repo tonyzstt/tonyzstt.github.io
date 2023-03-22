@@ -1,0 +1,403 @@
+<style>
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px 10px;
+        cursor: pointer;
+    }
+
+    .button1 {
+        border-radius: 5px;
+        /* font-size: 18px; */
+        background-color: white;
+        color: black;
+        border: 2px solid #2d6987
+        /* Green */
+    }
+
+    .button2 {
+        border-radius: 4px;
+    }
+
+    .button3 {
+        border-radius: 8px;
+    }
+
+    .button4 {
+        border-radius: 12px;
+    }
+
+    .button5 {
+        border-radius: 50%;
+    }
+
+
+    .td-center {
+        align: center;
+        text-align: center;
+        padding: 10px
+    }
+
+    .text_div {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    #blink {
+        color: red;
+        transition: 0.4s;
+    }
+    .crop {
+        width: 650px;
+        
+        overflow: hidden;
+    }
+    .crop1 {
+        width: 650px;
+        margin: -75px 0 -75px 0px;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Breaking Bad Dataset" />
+        <meta name="author" content="anonymous" />
+
+        <title>DexGrasp-1M</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
+
+        <!-- Custom styles for this template -->
+        <link href="offcanvas.css" rel="stylesheet" />
+        <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+        <style type="text/css">
+            .container {
+                zoom: 1;
+                margin-left: auto;
+                margin-right: auto;
+                vertical-align: middle;
+                width: 100%;
+                max-width: 1000px;
+            }
+            .container_img {
+                zoom: 1;
+                margin-left: auto;
+                margin-right: auto;
+                vertical-align: middle;
+                width: 100%;
+                max-width: 1000px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container" align="center">
+                <h2>
+                    Fast-Grasp'D: Dexterous Multi-finger Grasp Generation Through Differentiable Simulation
+                </h2>
+                <h4><i>IEEE International Conference on Robotics and Automation (ICRA) 2023</i></h4>
+                <p>
+                    <a href="http://www.cs.toronto.edu/~dylanturpin/" target="_blank">Dylan Turpin</a><sup>1,2,3</sup>,&nbsp;
+                    <a href="https://www.taozhong.info/" target="_blank">Tao Zhong</a><sup>1,2</sup>,&nbsp;
+                    <a href="#" target="_blank">Shutong Zhang</a><sup>1,2</sup>,&nbsp;
+                    <a href="https://www.linkedin.com/in/guanglei-zhu-15a797226/" target="_blank">Guanglei Zhu</a><sup>1,2</sup>,&nbsp;
+                    <a href="https://eric-heiden.com/" target="_blank">Eric Heiden</a><sup>3</sup>,&nbsp;
+                    <a href="#" target="_blank">Miles Macklin</a><sup>3</sup>,&nbsp;
+                    <a href="https://tsogkas.github.io/" target="_blank">Stavros Tsogkas</a><sup>1,3</sup>,&nbsp;
+                    <a href="https://www.cs.toronto.edu/~sven/" target="_blank">Sven Dickinson</a><sup>1,2,3</sup>,&nbsp;
+                    <a href="https://animesh.garg.tech/" target="_blank">Animesh Garg</a><sup>3</sup>
+                    <br/>
+                    <sup>1</sup><a href="https://web.cs.toronto.edu/" target="_blank">University of Toronto</a> &nbsp;&nbsp;
+                    <sup>2</sup><a href="https://vectorinstitute.ai/" target="_blank">Vector Institute</a>&nbsp;&nbsp;
+                    <sup>3</sup><a href="https://www.nvidia.com/en-us/research/" target="_blank">NVIDIA</a> &nbsp;&nbsp;
+                    <sup>4</sup><a href="https://research.samsung.com/" target="_blank">Samsung</a>&nbsp;&nbsp;
+                    <br/>
+                </p>
+                <h5>
+                    <a href="#">[Paper]</a>&nbsp;
+                    <!-- <a href="#">[Review]</a>&nbsp; -->
+                    <a href="#">[Data]</a>&nbsp;
+                    <a href="#">[Benchmark Code]</a>&nbsp;
+                    <a href="#">[Data Generation Code]</a>
+                </h5>
+                <h5>
+                    <a href="#">[Twitter Thread]</a>&nbsp;
+                    <!-- <a href="https://zhuanlan.zhihu.com/p/569555770">[Zhihu Blog]</a>&nbsp; -->
+                </h5>
+            </div>
+        </div>
+
+        <div class="section">
+
+            <div class="container_img">
+                <p align="center">
+                    <img
+                        border="0"
+                        src="data/imgs/teaser.jpg"
+                        style="width: 90%"
+                    />
+                </p>
+            </div>
+            <div class="container">
+                <div align="center"><h1>Abstract</h1></div>
+                <hr />
+                <p style="text-align: justify;">
+                    Multi-finger grasping relies on high quality training
+                    data, which is hard to obtain: human data is hard to transfer
+                    and synthetic data relies on simplifying assumptions that reduce
+                    grasp quality. By making grasp simulation differentiable, and
+                    contact dynamics amenable to gradient-based optimization,
+                    we accelerate the search for high-quality grasps with fewer
+                    limiting assumptions. We present Grasp’D-1M: a large-scale
+                    dataset for multi-finger robotic grasping, synthesized with Fast-
+                    Grasp’D, a novel differentiable grasping simulator. Grasp’D-
+                    1M contains one million training examples for three robotic
+                    hands (three, four and five-fingered), each with multimodal
+                    visual inputs (RGB+depth+segmentation, available in mono and
+                    stereo). Grasp synthesis with Fast-Grasp’D is 10x faster than
+                    GraspIt! [1] and 20x faster than the prior Grasp’D differentiable
+                    simulator [2]. Generated grasps are more stable and contact-rich
+                    than GraspIt! grasps, regardless of the distance threshold used
+                    for contact generation. We validate the usefulness of our dataset
+                    by retraining an existing vision-based grasping pipeline [3]
+                    on Grasp’D-1M, and showing a dramatic increase in model
+                    performance, predicting grasps with 30% more contact, a 33%
+                    higher epsilon metric, and 35% lower simulated displacement
+                </p>
+                <p>
+                    [1] A. T. Miller and P. K. Allen, “Graspit! a versatile simulator for robotic grasping,” IEEE Robotics & Automation Magazine, 2004.<br>
+                
+                    [2] D. Turpin, L. Wang, E. Heiden, Y.-C. Chen, M. Macklin, S. Tsogkas, S. Dickinson, and A. Garg, “Grasp’d: Differentiable contact-rich 
+                        grasp synthesis for multi-fingered hands,” arXiv preprint arXiv:2208.12250, 2022.<br>
+
+                    [3] J. Lundell, F. Verdoja, and V. Kyrki, “DDGC: Generative deep dexterous grasping in clutter,” IEEE Robotics and Automation Letters, 2021.
+                </p>
+
+                <div align="center"><h1>Demo</h1></div>
+                <hr />
+
+                <div class="container_img">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 padding-0 canvas-row">
+                            <h4></h4>
+                            <model-viewer
+                                id="demo1"
+                                alt="Object"
+                                src="./data/test.glb"
+                                style="
+                                    width: 100%;
+                                    height: 250px;
+                                    background-color: #ffffff;
+                                "
+                                exposure=".8"
+                                ar ar-modes="webxr scene-viewer quick-look" 
+                                seamless-poster shadow-intensity="1"
+                                camera-orbit="90deg 90deg 105%"
+                                camera-controls
+                                interaction-prompt="None"
+                            >
+                            </model-viewer>
+                        </div>
+                        <div class="col-md-2 padding-0 canvas-row">
+                            <h4> </h4>
+                            <model-viewer
+                                id="demo2"
+                                alt="Object"
+                                src="./data/006.glb"
+                                style="
+                                    width: 100%;
+                                    height: 250px;
+                                    background-color: #ffffff;
+                                "
+                                exposure=".8"
+                                ar ar-modes="webxr scene-viewer quick-look" 
+                                seamless-poster shadow-intensity="1"
+                                camera-orbit="180deg 0deg 105%"
+                                camera-controls
+                                interaction-prompt="None"
+                            >
+                            </model-viewer>
+                        </div>
+
+                        <div class="col-md-2 padding-0 canvas-row">
+                            <h4></h4>
+                            <model-viewer
+                                id="demo3"
+                                alt="Object"
+                                src="./data/Banana.glb"
+                                style="
+                                    width: 100%;
+                                    height: 250px;
+                                    background-color: #ffffff;
+                                "
+                                exposure=".8"
+                                ar ar-modes="webxr scene-viewer quick-look" 
+                                seamless-poster shadow-intensity="1"
+                                camera-orbit="-90deg 90deg 105%"
+                                camera-controls
+                                interaction-prompt="None"
+                            >
+                            </model-viewer>
+                        </div>
+                        <div class="col-md-2 padding-0 canvas-row">
+                            <h4> </h4>
+                            <model-viewer
+                                id="demo4"
+                                alt="Object"
+                                src="./data/021.glb"
+                                style="
+                                    width: 100%;
+                                    height: 250px;
+                                    background-color: #ffffff;
+                                "
+                                exposure=".8"
+                                ar ar-modes="webxr scene-viewer quick-look" 
+                                seamless-poster shadow-intensity="1"
+                                camera-orbit="-90deg 90deg 105%"
+                                camera-controls
+                                interaction-prompt="None"
+                            >
+                            </model-viewer>
+                        </div>
+
+                        <div class="col-md-2 padding-0 canvas-row">
+                            <h4></h4>
+                            <model-viewer
+                                id="demo5"
+                                alt="Object"
+                                src="./data/Drill.glb"
+                                style="
+                                    width: 100%;
+                                    height: 250px;
+                                    background-color: #ffffff;
+                                "
+                                exposure=".8"
+                                ar ar-modes="webxr scene-viewer quick-look" 
+                                seamless-poster shadow-intensity="1"
+                                camera-orbit="90deg 90deg 105%"
+                                camera-controls
+                                interaction-prompt="None"
+                            >
+                            </model-viewer>
+                        </div>
+                        <div class="col-md-2 padding-0 canvas-row">
+                            <h4> </h4>
+                            <model-viewer
+                                id="demo6"
+                                alt="Fracture"
+                                src="./data/Drill.glb"
+                                style="
+                                    width: 100%;
+                                    height: 250px;
+                                    background-color: #ffffff;
+                                "
+                                exposure=".8"
+                                ar ar-modes="webxr scene-viewer quick-look" 
+                                seamless-poster shadow-intensity="1"
+                                camera-orbit="90deg 90deg 105%"
+                                camera-controls
+                                interaction-prompt="None"
+                            >
+                            </model-viewer>
+                        </div>
+                    </div>
+            
+
+
+                    <table align=center width=1000px>
+                        <tr>
+                            <td class="td-center" style="padding: 20px;">
+                                <input type="checkbox" value="0" onclick="enableInteraction()" checked>
+                                <p class="button button1" id="blink"> Enable Interaction</p>
+                            </td>
+                            <td class="td-center" style="padding: 20px;"> <input type="checkbox" name="tie_controls"
+                                    id="tie_controls" value="1" tie-interactions onclick="enableInteractionTieControls()" checked tie-interactions>
+                                <p class="button button1">Tie Controls</p>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                    <br/>
+
+                    <script
+                        type="module"
+                        src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"
+                    ></script>
+
+                    <div align="center"><h1>Method</h1></div>
+                    <hr />
+
+                    <div class="row" id="method" style="max-width:1000px; margin:0 auto; text-align:justify">
+                        <center>
+                            <img src="./data/imgs/method.png" width="100%">
+                        </center>
+                        <br>
+                        <p style="text-align: justify;">
+                            <b>Our grasp synthesis pipeline.</b> Our grasp synthesis pipeline
+                            generates the Grasp’D-1M dataset of one million unique grasps in three stages.
+                            (1) Grasp generation: For any provided (robot hand, object) pair, we generate
+                            a set of base grasps by gradient descent over an objective computed by Fast-Grasp’D,
+                            our fast and differentiable grasping simulator. (2) Scene generation:
+                            We simulate multiple drops of each object onto a table to create scenes with
+                            different object poses and transfer base grasps to these scenes. (3) Rendering:
+                            Finally, we render each scene (RGB, depth, segmentation, 2D/3D bounding
+                            boxes in mono+stereo) from multiple camera angles.
+                        </p>
+                        <br>
+                    </div>
+
+                    <div align="center"><h1>BibTeX</h1></div>
+                    <hr />
+                    <pre>@InProceedings{turpin2023fastgraspd,
+author       = {Dylan Turpin and Tao Zhong and Shutong Zhang and Guanglei Zhu and Eric Heiden and Miles Macklin and Stavros Tsogkas and Sven Dickinson and Animesh Garg},
+title        = {Fast-Grasp'D: Dexterous Multi-finger Grasp Generation Through Differentiable Simulation},
+booktitle    = {ICRA},
+year         = {2023},
+}</pre>
+
+                </div>
+            </div>
+        </div>
+        <br/><br/>
+
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"
+        ></script>
+        <script src="./model_click.js"></script>
+        <script>
+            modelEventListeners()
+            enableInteraction()
+        </script>
+    </body>
+</html>
