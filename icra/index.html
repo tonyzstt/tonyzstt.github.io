@@ -15,7 +15,6 @@
 
     .button1 {
         border-radius: 5px;
-        /* font-size: 18px; */
         background-color: white;
         color: black;
         border: 2px solid #2d6987
@@ -104,12 +103,25 @@
                 width: 100%;
                 max-width: 1000px;
             }
+            .message {
+                padding: 1rem;
+                margin-bottom: 1rem;
+                color: #212529;
+                background-color: #fff3bf;
+                border-radius: 0.25rem;
+                text-align: center;
+                vertical-align: middle;
+                width: 50%;
+            }
         </style>
     </head>
 
     <body>
         <div class="jumbotron jumbotron-fluid">
             <div class="container" align="center">
+                <p class="message" style="font-size: small;">
+                    Accepted to ICRA 2023. Info below will be updated as the conference date approaches.
+                </p>
                 <h2>
                     Fast-Grasp'D: Dexterous Multi-finger Grasp Generation Through Differentiable Simulation
                 </h2>
@@ -131,17 +143,16 @@
                     <sup>4</sup><a href="https://research.samsung.com/" target="_blank">Samsung</a>&nbsp;&nbsp;
                     <br/>
                 </p>
-                <h5>
-                    <a href="#">[Paper]</a>&nbsp;
-                    <!-- <a href="#">[Review]</a>&nbsp; -->
-                    <a href="#">[Data]</a>&nbsp;
-                    <a href="#">[Benchmark Code]</a>&nbsp;
-                    <a href="#">[Data Generation Code]</a>
-                </h5>
-                <h5>
-                    <a href="#">[Twitter Thread]</a>&nbsp;
-                    <!-- <a href="https://zhuanlan.zhihu.com/p/569555770">[Zhihu Blog]</a>&nbsp; -->
-                </h5>
+                <h4>
+                    <a href="#" style="color: grey;">[Paper]</a>&nbsp;
+                    <a href="#" style="color: grey;">[arXiv]</a>&nbsp;
+                    <a href="#" style="color: grey;">[Data]</a>&nbsp;
+                    <a href="#" style="color: grey;">[Benchmark Code]</a>&nbsp;
+                    <a href="#" style="color: grey;">[Data Generation Code]</a>
+                </h4>
+                <h4>
+                    <a href="#" style="color: grey;">[Twitter Thread]</a>&nbsp;
+                </h4>
             </div>
         </div>
 
@@ -159,7 +170,7 @@
             <div class="container">
                 <div align="center"><h1>Abstract</h1></div>
                 <hr />
-                <p style="text-align: justify;">
+                <p style="text-align: justify; font-size: medium;">
                     Multi-finger grasping relies on high quality training
                     data, which is hard to obtain: human data is hard to transfer
                     and synthetic data relies on simplifying assumptions that reduce
@@ -180,9 +191,9 @@
                     by retraining an existing vision-based grasping pipeline [3]
                     on Grasp’D-1M, and showing a dramatic increase in model
                     performance, predicting grasps with 30% more contact, a 33%
-                    higher epsilon metric, and 35% lower simulated displacement
+                    higher epsilon metric, and 35% lower simulated displacement.
                 </p>
-                <p>
+                <p style="font-size: medium;">
                     [1] A. T. Miller and P. K. Allen, “Graspit! a versatile simulator for robotic grasping,” IEEE Robotics & Automation Magazine, 2004.<br>
                 
                     [2] D. Turpin, L. Wang, E. Heiden, Y.-C. Chen, M. Macklin, S. Tsogkas, S. Dickinson, and A. Garg, “Grasp’d: Differentiable contact-rich 
@@ -191,7 +202,7 @@
                     [3] J. Lundell, F. Verdoja, and V. Kyrki, “DDGC: Generative deep dexterous grasping in clutter,” IEEE Robotics and Automation Letters, 2021.
                 </p>
 
-                <div align="center"><h1>Demo</h1></div>
+                <!-- <div align="center"><h1>Demo</h1></div>
                 <hr />
 
                 <div class="container_img">
@@ -333,7 +344,7 @@
                                 <p class="button button1">Tie Controls</p>
                             </td>
                         </tr>
-                    </table>
+                    </table> -->
 
 
                     <br/>
@@ -351,7 +362,7 @@
                             <img src="./data/imgs/method.png" width="100%">
                         </center>
                         <br>
-                        <p style="text-align: justify;">
+                        <p style="text-align: justify; font-size: medium;">
                             <b>Our grasp synthesis pipeline.</b> Our grasp synthesis pipeline
                             generates the Grasp’D-1M dataset of one million unique grasps in three stages.
                             (1) Grasp generation: For any provided (robot hand, object) pair, we generate
@@ -367,7 +378,7 @@
 
                     <div align="center"><h1>BibTeX</h1></div>
                     <hr />
-                    <pre>@InProceedings{turpin2023fastgraspd,
+                    <pre style="font-size: medium;">@InProceedings{turpin2023fastgraspd,
 author       = {Dylan Turpin and Tao Zhong and Shutong Zhang and Guanglei Zhu and Eric Heiden and Miles Macklin and Stavros Tsogkas and Sven Dickinson and Animesh Garg},
 title        = {Fast-Grasp'D: Dexterous Multi-finger Grasp Generation Through Differentiable Simulation},
 booktitle    = {ICRA},
