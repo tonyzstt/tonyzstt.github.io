@@ -1,6 +1,31 @@
 # Shutong Zhang
 
 This repo is a clone of https://github.com/varadbhogayata/varadbhogayata.github.io.
+Plus some of my own works.
+
+## Activity 1
+![Sample Image](images/a1.png)
+
+## Activity 2
+#### Repo
+![Sample Image](images/a2_1.png)
+
+#### Website
+![Sample Image](images/a2_2.png)
+
+## Activity 3
+#### Repo
+![Sample Image](images/a3_1.png)
+
+#### Website
+![Sample Image](images/a3_2.png)
+
+## Activity 4
+#### Repo
+![Sample Image](images/a4_1.png)
+
+#### Website
+![Sample Image](images/a4_2.png)
 
 <!-- # Personal Portfolio ⚡️ 
 > A clean, beautiful, responsive portfolio template for Software Developers!
